@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VelocityLab — Advanced Typing Speed Test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="dark">
+  <div class="bg-gradient"></div>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">VelocityLab</p>
+        <h1>Typing Speed Test</h1>
+        <p class="subtitle">A premium, real-time typing lab with analytics, leaderboard, and personal best tracking.</p>
+      </div>
+      <div class="controls">
+        <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">Light Mode</button>
+        <label class="toggle">
+          <input id="soundToggle" type="checkbox" />
+          <span>Sound</span>
+        </label>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="card stat">
+        <h3>Time</h3>
+        <div class="stat-value"><span id="timeLeft">60</span><span class="unit">s</span></div>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+      <div class="card stat">
+        <h3>WPM</h3>
+        <div class="stat-value"><span id="wpm">0</span></div>
+        <p class="muted">Words per minute</p>
+      </div>
+      <div class="card stat">
+        <h3>CPM</h3>
+        <div class="stat-value"><span id="cpm">0</span></div>
+        <p class="muted">Characters per minute</p>
+      </div>
+      <div class="card stat">
+        <h3>Accuracy</h3>
+        <div class="stat-value"><span id="accuracy">100</span><span class="unit">%</span></div>
+        <div class="heatmap" id="accuracyHeatmap"></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card typing-card">
+        <div class="typing-header">
+          <h2>Test Area</h2>
+          <button id="restartBtn" class="btn">Restart</button>
+        </div>
+        <div class="typing-area" id="typingArea" aria-live="polite"></div>
+        <div class="caret" id="caret"></div>
+        <textarea
+          id="hiddenInput"
+          class="hidden-input"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+        ></textarea>
+      </div>
+
+      <div class="card analytics">
+        <h2>Performance</h2>
+        <canvas id="performanceChart" width="420" height="220"></canvas>
+        <div class="meter">
+          <div class="meter-arc" id="speedMeter">
+            <div class="needle"></div>
+            <div class="meter-label">
+              <span id="meterValue">0</span> WPM
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card leaderboard">
+        <h2>Leaderboard</h2>
+        <ol id="leaderboardList" class="leaderboard-list"></ol>
+        <div class="personal-best">
+          <span>Personal Best</span>
+          <strong id="personalBest">0 WPM</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card tips">
+      <div>
+        <h2>How it works</h2>
+        <p>Start typing to begin the 60s test. Your results update in real time with accuracy heatmaps, speed curves, and adaptive gauges.</p>
+      </div>
+      <ul class="tips-list">
+        <li>Use consistent rhythm for best accuracy.</li>
+        <li>Look ahead 2–3 words to reduce pauses.</li>
+        <li>Restart anytime to chase a new personal best.</li>
+      </ul>
+    </section>
+  </main>
+
+  <canvas id="confetti" class="confetti"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
